@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: bitnami/airflow
+      chart: airflow        # ✅ This must be JUST "airflow", not "bitnami/airflow"
       version: 24.2.0
       sourceRef:
         kind: HelmRepository
@@ -22,4 +22,3 @@ spec:
       enabled: true
     defaultAirflowRepository: apache/airflow
     defaultAirflowTag: 2.9.1
-
