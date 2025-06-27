@@ -1,24 +1,15 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: airflow
-  namespace: airflow
+  namespace: dev
 spec:
   interval: 5m
   chart:
     spec:
       chart: airflow
-      version: 24.2.0
       sourceRef:
         kind: HelmRepository
-        name: bitnami-airflow-legacy   # ✅ must match exactly
-        namespace: flux-system
-  values:
-    airflow:
-      executor: LocalExecutor
-    postgresql:
-      enabled: true
-    redis:
-      enabled: true
-    defaultAirflowRepository: apache/airflow
-    defaultAirflowTag: 2.9.1
+        name: airflow
+        namespace: flux
+      interval: 1m
