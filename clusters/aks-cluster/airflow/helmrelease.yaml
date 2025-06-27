@@ -1,15 +1,17 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmChart
 metadata:
-  name: airflow
-  namespace: dev
+  name: podinfo
 spec:
   interval: 5m
-  chart:
-    spec:
-      chart: airflow
-      sourceRef:
-        kind: HelmRepository
-        name: airflow
-        namespace: flux
-      interval: 1m
+  chart: podinfo
+  reconcileStrategy: ChartVersion
+  sourceRef:
+    kind: HelmRepository
+    name: podinfo
+  version: ">=6.1.6"
+  verify:
+    provider: cosign
+    matchOIDCIdentity:
+      - issuer: "^https://token.actions.githubusercontent.com$"
+        subject: "^https://github.com/stefanprodan/podinfo.*$"
