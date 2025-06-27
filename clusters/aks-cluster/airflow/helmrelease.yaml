@@ -8,16 +8,17 @@ spec:
   chart:
     spec:
       chart: airflow
-      version: 24.2.0  # Check latest version at https://artifacthub.io/packages/helm/bitnami/airflow
+      version: 24.2.0  # This matches Bitnami versioning
       sourceRef:
         kind: HelmRepository
         name: bitnami
+        namespace: flux-system
   values:
-    defaultAirflowRepository: apache/airflow
-    defaultAirflowTag: 2.9.1
     airflow:
       executor: LocalExecutor
     postgresql:
       enabled: true
     redis:
       enabled: true
+    defaultAirflowRepository: apache/airflow
+    defaultAirflowTag: 2.9.1
