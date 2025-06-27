@@ -7,11 +7,11 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: airflow        # ✅ This must be JUST "airflow", not "bitnami/airflow"
+      chart: airflow
       version: 24.2.0
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: bitnami-airflow-legacy   # ✅ must match exactly
         namespace: flux-system
   values:
     airflow:
