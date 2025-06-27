@@ -1,8 +1,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: bitnami
+  name: bitnami-airflow-legacy
   namespace: flux-system
 spec:
-  url: https://charts.bitnami.com/bitnami
-  interval: 1h0m0s
+  interval: 1h
+  url: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
