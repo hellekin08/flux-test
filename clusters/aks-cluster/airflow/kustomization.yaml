@@ -1,5 +1,0 @@
-# clusters/aks-cluster/airflow/kustomization.yaml
-resources:
-  - namespace.yaml
-  - helmrepository.yaml
-  - helmrelease.yaml

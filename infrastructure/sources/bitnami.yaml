@@ -1,8 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: airflow
-  namespace: flux
+  name: bitnami
 spec:
-  interval: 1m
-  url: https://airflow.apache.org
+  interval: 30m
+  url: https://charts.bitnami.com/bitnami
